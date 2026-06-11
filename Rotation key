@@ -1,0 +1,12 @@
+def Rotation_key(BINARY,ROTATION):
+    ROTATION = ROTATION % len(BINARY)
+    return BINARY[-ROTATION:] + BINARY[:-ROTATION]
+Binary_list = input().split()
+Rotation = list(map(int, input().split()))
+
+result = []
+for index, binary in enumerate(Binary_list):
+    rotation_amount = Rotation[index % len(Rotation)]
+    rotated_binary = Rotation_key(binary, rotation_amount)
+    result.append(rotated_binary)
+print(" ".join(result))
